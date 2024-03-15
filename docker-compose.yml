@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: rw-db
+    restart: always
+    env_file:
+      - variables.env
+    ports:
+      - "3306:3306"
+    volumes:
+      - rw_mariadb_data:/var/lib/mysql
+
+volumes:
+  rw_mariadb_data:
